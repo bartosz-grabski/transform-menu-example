@@ -1,24 +1,27 @@
 class TransformMenu {
 	
-	constructor(numberOfElements, elementClass, transformMenuSelector) {
-		this.numberOfElements = numberOfElements;
+	constructor(elementClass, transformMenuSelector) {
 		this.transformMenuSelector = transformMenuSelector;
 		this.elementClass = elementClass;
 
 		this._place();
 	}
 
+
 	_place()  {
+		
 		const elements = document.querySelectorAll(this.transformMenuSelector);
 
 
 		elements.forEach(wrapperElement => {
 
+			const childNodes = wrapperElement.children;
 			const innerWrapper = document.createElement("div");
 
+			let elementsToMove = [];
 
-			for (let i = 0; i < this.numberOfElements; i++) {
-				const innerElement = document.createElement("div");
+			for (let i = 0; i < childNodes.length; i++) {
+				const innerElement = childNodes[i];
 				innerElement.classList.add(this.elementClass);
 				innerElement.classList.add(this.elementClass + "-" + i);
 
@@ -35,11 +38,14 @@ class TransformMenu {
 					innerWrapper.classList.add(this.elementClass + "-" + i + "-active");
 				});
 
-				innerWrapper.appendChild(innerElement);
-
+				
+				elementsToMove.push(innerElement);
 			}
 
+			
 			wrapperElement.appendChild(innerWrapper);
+			elementsToMove.forEach((element) => innerWrapper.appendChild(element));
+
 		});
 	}
 

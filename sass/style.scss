@@ -1,12 +1,92 @@
-$elements: 3;
-$radius: 300;
+$elements: 6;
+$radiusX: 300px;
+$radiusY: 100px;
 $width: 500px;
 $pi: 3.14;
-$min: 0.5;
+$min: 0.3;
+$animationTime: 1s;
 
 @function calculate-scale($degree) {
 	@debug $degree;
 	@return (((1 - $min)/($pi*$pi))*$degree*$degree) + (((2 * $min) - 2)/$pi)*$degree + 1;
+}
+
+$pi: 3.14159265359;
+$_precision: 10;
+
+@function pow($base, $exp) {
+  $value: $base;
+  @if $exp > 1 {
+    @for $i from 2 through $exp {
+      $value: $value * $base;
+    }
+  }
+  @if $exp < 1{
+    @for $i from 0 through -$exp {
+      $value: $value / $base;
+    }
+  }
+  @return $value;
+}
+
+@function fact($num) {
+  $fact: 1;
+  @if $num > 0{
+    @for $i from 1 through $num {
+      $fact: $fact * $i;
+    }
+  }
+  @return $fact;
+}
+
+@function _to_unitless_rad($angle) {
+  @if unit($angle) == "deg" {
+    $angle: $angle / 180deg * $pi;
+  }
+  @if unit($angle) == "rad" {
+    $angle: $angle / 1rad;
+  }
+  @return $angle;
+}
+
+@function sin($angle){
+  $a: _to_unitless_rad($angle);
+  $sin: $a;
+  @for $n from 1 through $_precision {
+    $sin: $sin + (pow(-1, $n) / fact(2 * $n + 1) ) * pow($a, (2 * $n + 1));
+  }
+  @return $sin;
+}
+
+@function cos($angle){
+  $a: _to_unitless_rad($angle);
+  $cos: 1;
+  @for $n from 1 through $_precision {
+    $cos: $cos + ( pow(-1,$n) / fact(2*$n) ) * pow($a,2*$n);
+  }
+  @return $cos;
+}
+
+@function tan($angle){
+  @return sin($angle) / cos($angle);
+}
+
+body {
+	background: #000;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.menu-entry {
+	border : 1px solid #grey;
+	border-radius : 10px;
+	width : 300px;
+	height: 100px;
+	background : #fff;
+	padding: 15px;
+
+	&.header {
+		margin : auto;
+	}
 }
 
 
@@ -26,9 +106,6 @@ $min: 0.5;
 }
 
 .transform {
-	width : 100px;
-	height: 100px;
-	border: 1px solid red;
 	position: absolute;
 	left: 0;
 	right: 0;
@@ -42,27 +119,22 @@ $min: 0.5;
 
 	.transform-#{$i}-active {
 			@for $j from 0 to $elements {
+
+				$degreeRad: ((2*$pi)/$elements) * ($j - $i);
+
 				.transform-#{$j} {
-					transform-origin: 50% 50% -#{$radius}px;
 					transform: 
-						rotate3d(0,1,-0.2,(360/$elements)* ($i - $j)#{deg}) 
-						scale(calculate-scale(abs(((2*$pi)/$elements) * ($i - $j))), calculate-scale(abs(((2*$pi)/$elements) * ($i - $j))))
-
-						;
-					transition: all 0.7s ease-in;
+						translateY(-100px * sin(0.5 * abs($degreeRad)))
+						translateX($radiusX * sin($degreeRad))
+						scale(calculate-scale(abs($degreeRad)), calculate-scale(abs($degreeRad)));
+					transition: all $animationTime ease-in;
+					opacity: calculate-scale(abs($degreeRad))
 				}
 
-				div.transform-#{$j} {
-					transform: rotate3d(0,1,-0.2,-(360/$elements)* ($i - $j)#{deg});
-					transition: all 0.7s ease-in;
-				}
+				
 			}
 	}
 
 }
 
-
-@mixin transforms-origin($x,$y,$z,$radius) {
-
-}
 

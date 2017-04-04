@@ -1,3 +1,17 @@
+body {
+  background: #000;
+  font-family: 'Open Sans', sans-serif; }
+
+.menu-entry {
+  border: 1px solid #grey;
+  border-radius: 10px;
+  width: 300px;
+  height: 100px;
+  background: #fff;
+  padding: 15px; }
+  .menu-entry.header {
+    margin: auto; }
+
 .container {
   text-align: center;
   margin: auto;
@@ -11,9 +25,6 @@
   position: relative; }
 
 .transform {
-  width: 100px;
-  height: 100px;
-  border: 1px solid red;
   position: absolute;
   left: 0;
   right: 0;
@@ -22,69 +33,153 @@
   margin: auto; }
 
 .transform-0-active .transform-0 {
-  transform-origin: 50% 50% -300px;
-  transform: rotate3d(0, 1, -0.2, 0deg) scale(1, 1);
-  transition: all 0.7s ease-in; }
-.transform-0-active div.transform-0 {
-  transform: rotate3d(0, 1, -0.2, 0deg);
-  transition: all 0.7s ease-in; }
+  transform: translateY(0px) translateX(0px) scale(1, 1);
+  transition: all 1s ease-in;
+  opacity: 1; }
 .transform-0-active .transform-1 {
-  transform-origin: 50% 50% -300px;
-  transform: rotate3d(0, 1, -0.2, -120deg) scale(0.55556, 0.55556);
-  transition: all 0.7s ease-in; }
-.transform-0-active div.transform-1 {
-  transform: rotate3d(0, 1, -0.2, 120deg);
-  transition: all 0.7s ease-in; }
+  transform: translateY(-50px) translateX(259.80762px) scale(0.61111, 0.61111);
+  transition: all 1s ease-in;
+  opacity: 0.61111; }
 .transform-0-active .transform-2 {
-  transform-origin: 50% 50% -300px;
-  transform: rotate3d(0, 1, -0.2, -240deg) scale(0.55556, 0.55556);
-  transition: all 0.7s ease-in; }
-.transform-0-active div.transform-2 {
-  transform: rotate3d(0, 1, -0.2, 240deg);
-  transition: all 0.7s ease-in; }
+  transform: translateY(-86.60254px) translateX(259.80762px) scale(0.37778, 0.37778);
+  transition: all 1s ease-in;
+  opacity: 0.37778; }
+.transform-0-active .transform-3 {
+  transform: translateY(-100px) translateX(0px) scale(0.3, 0.3);
+  transition: all 1s ease-in;
+  opacity: 0.3; }
+.transform-0-active .transform-4 {
+  transform: translateY(-86.60254px) translateX(-259.80762px) scale(0.37778, 0.37778);
+  transition: all 1s ease-in;
+  opacity: 0.37778; }
+.transform-0-active .transform-5 {
+  transform: translateY(-50px) translateX(-259.80724px) scale(0.61111, 0.61111);
+  transition: all 1s ease-in;
+  opacity: 0.61111; }
 
 .transform-1-active .transform-0 {
-  transform-origin: 50% 50% -300px;
-  transform: rotate3d(0, 1, -0.2, 120deg) scale(0.55556, 0.55556);
-  transition: all 0.7s ease-in; }
-.transform-1-active div.transform-0 {
-  transform: rotate3d(0, 1, -0.2, -120deg);
-  transition: all 0.7s ease-in; }
+  transform: translateY(-50px) translateX(-259.80762px) scale(0.61111, 0.61111);
+  transition: all 1s ease-in;
+  opacity: 0.61111; }
 .transform-1-active .transform-1 {
-  transform-origin: 50% 50% -300px;
-  transform: rotate3d(0, 1, -0.2, 0deg) scale(1, 1);
-  transition: all 0.7s ease-in; }
-.transform-1-active div.transform-1 {
-  transform: rotate3d(0, 1, -0.2, 0deg);
-  transition: all 0.7s ease-in; }
+  transform: translateY(0px) translateX(0px) scale(1, 1);
+  transition: all 1s ease-in;
+  opacity: 1; }
 .transform-1-active .transform-2 {
-  transform-origin: 50% 50% -300px;
-  transform: rotate3d(0, 1, -0.2, -120deg) scale(0.55556, 0.55556);
-  transition: all 0.7s ease-in; }
-.transform-1-active div.transform-2 {
-  transform: rotate3d(0, 1, -0.2, 120deg);
-  transition: all 0.7s ease-in; }
+  transform: translateY(-50px) translateX(259.80762px) scale(0.61111, 0.61111);
+  transition: all 1s ease-in;
+  opacity: 0.61111; }
+.transform-1-active .transform-3 {
+  transform: translateY(-86.60254px) translateX(259.80762px) scale(0.37778, 0.37778);
+  transition: all 1s ease-in;
+  opacity: 0.37778; }
+.transform-1-active .transform-4 {
+  transform: translateY(-100px) translateX(0px) scale(0.3, 0.3);
+  transition: all 1s ease-in;
+  opacity: 0.3; }
+.transform-1-active .transform-5 {
+  transform: translateY(-86.60254px) translateX(-259.80762px) scale(0.37778, 0.37778);
+  transition: all 1s ease-in;
+  opacity: 0.37778; }
 
 .transform-2-active .transform-0 {
-  transform-origin: 50% 50% -300px;
-  transform: rotate3d(0, 1, -0.2, 240deg) scale(0.55556, 0.55556);
-  transition: all 0.7s ease-in; }
-.transform-2-active div.transform-0 {
-  transform: rotate3d(0, 1, -0.2, -240deg);
-  transition: all 0.7s ease-in; }
+  transform: translateY(-86.60254px) translateX(-259.80762px) scale(0.37778, 0.37778);
+  transition: all 1s ease-in;
+  opacity: 0.37778; }
 .transform-2-active .transform-1 {
-  transform-origin: 50% 50% -300px;
-  transform: rotate3d(0, 1, -0.2, 120deg) scale(0.55556, 0.55556);
-  transition: all 0.7s ease-in; }
-.transform-2-active div.transform-1 {
-  transform: rotate3d(0, 1, -0.2, -120deg);
-  transition: all 0.7s ease-in; }
+  transform: translateY(-50px) translateX(-259.80762px) scale(0.61111, 0.61111);
+  transition: all 1s ease-in;
+  opacity: 0.61111; }
 .transform-2-active .transform-2 {
-  transform-origin: 50% 50% -300px;
-  transform: rotate3d(0, 1, -0.2, 0deg) scale(1, 1);
-  transition: all 0.7s ease-in; }
-.transform-2-active div.transform-2 {
-  transform: rotate3d(0, 1, -0.2, 0deg);
-  transition: all 0.7s ease-in; }
+  transform: translateY(0px) translateX(0px) scale(1, 1);
+  transition: all 1s ease-in;
+  opacity: 1; }
+.transform-2-active .transform-3 {
+  transform: translateY(-50px) translateX(259.80762px) scale(0.61111, 0.61111);
+  transition: all 1s ease-in;
+  opacity: 0.61111; }
+.transform-2-active .transform-4 {
+  transform: translateY(-86.60254px) translateX(259.80762px) scale(0.37778, 0.37778);
+  transition: all 1s ease-in;
+  opacity: 0.37778; }
+.transform-2-active .transform-5 {
+  transform: translateY(-100px) translateX(0px) scale(0.3, 0.3);
+  transition: all 1s ease-in;
+  opacity: 0.3; }
+
+.transform-3-active .transform-0 {
+  transform: translateY(-100px) translateX(0px) scale(0.3, 0.3);
+  transition: all 1s ease-in;
+  opacity: 0.3; }
+.transform-3-active .transform-1 {
+  transform: translateY(-86.60254px) translateX(-259.80762px) scale(0.37778, 0.37778);
+  transition: all 1s ease-in;
+  opacity: 0.37778; }
+.transform-3-active .transform-2 {
+  transform: translateY(-50px) translateX(-259.80762px) scale(0.61111, 0.61111);
+  transition: all 1s ease-in;
+  opacity: 0.61111; }
+.transform-3-active .transform-3 {
+  transform: translateY(0px) translateX(0px) scale(1, 1);
+  transition: all 1s ease-in;
+  opacity: 1; }
+.transform-3-active .transform-4 {
+  transform: translateY(-50px) translateX(259.80762px) scale(0.61111, 0.61111);
+  transition: all 1s ease-in;
+  opacity: 0.61111; }
+.transform-3-active .transform-5 {
+  transform: translateY(-86.60254px) translateX(259.80762px) scale(0.37778, 0.37778);
+  transition: all 1s ease-in;
+  opacity: 0.37778; }
+
+.transform-4-active .transform-0 {
+  transform: translateY(-86.60254px) translateX(259.80762px) scale(0.37778, 0.37778);
+  transition: all 1s ease-in;
+  opacity: 0.37778; }
+.transform-4-active .transform-1 {
+  transform: translateY(-100px) translateX(0px) scale(0.3, 0.3);
+  transition: all 1s ease-in;
+  opacity: 0.3; }
+.transform-4-active .transform-2 {
+  transform: translateY(-86.60254px) translateX(-259.80762px) scale(0.37778, 0.37778);
+  transition: all 1s ease-in;
+  opacity: 0.37778; }
+.transform-4-active .transform-3 {
+  transform: translateY(-50px) translateX(-259.80762px) scale(0.61111, 0.61111);
+  transition: all 1s ease-in;
+  opacity: 0.61111; }
+.transform-4-active .transform-4 {
+  transform: translateY(0px) translateX(0px) scale(1, 1);
+  transition: all 1s ease-in;
+  opacity: 1; }
+.transform-4-active .transform-5 {
+  transform: translateY(-50px) translateX(259.80762px) scale(0.61111, 0.61111);
+  transition: all 1s ease-in;
+  opacity: 0.61111; }
+
+.transform-5-active .transform-0 {
+  transform: translateY(-50px) translateX(259.80724px) scale(0.61111, 0.61111);
+  transition: all 1s ease-in;
+  opacity: 0.61111; }
+.transform-5-active .transform-1 {
+  transform: translateY(-86.60254px) translateX(259.80762px) scale(0.37778, 0.37778);
+  transition: all 1s ease-in;
+  opacity: 0.37778; }
+.transform-5-active .transform-2 {
+  transform: translateY(-100px) translateX(0px) scale(0.3, 0.3);
+  transition: all 1s ease-in;
+  opacity: 0.3; }
+.transform-5-active .transform-3 {
+  transform: translateY(-86.60254px) translateX(-259.80762px) scale(0.37778, 0.37778);
+  transition: all 1s ease-in;
+  opacity: 0.37778; }
+.transform-5-active .transform-4 {
+  transform: translateY(-50px) translateX(-259.80762px) scale(0.61111, 0.61111);
+  transition: all 1s ease-in;
+  opacity: 0.61111; }
+.transform-5-active .transform-5 {
+  transform: translateY(0px) translateX(0px) scale(1, 1);
+  transition: all 1s ease-in;
+  opacity: 1; }
 
 /*# sourceMappingURL=style.css.map */
